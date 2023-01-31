@@ -23,6 +23,7 @@ public class Exercicio6 {
         long periodoVacinaEmMeses = 3;
         LocalDate[] proximasDoses = obterDatasProximasVacinas(dataPrimeiraDose,quantidadeDosesFuturas, periodoVacinaEmMeses);
 
+        System.out.println("\nPróximas doses da vacina: ");
         for (int i = 0; i < proximasDoses.length; i++) {
             System.out.printf("Dose %d: %s%n", (i+1), proximasDoses[i].format(formato));
         }
