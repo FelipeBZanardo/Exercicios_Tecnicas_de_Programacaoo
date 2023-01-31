@@ -33,10 +33,16 @@ public class Exercicio6 {
         while(true){
             try{
                 System.out.print("Entre com a data da vacina no formato dd/MM/yyyy: ");
-                String data1String = SCANNER.nextLine();
-                return LocalDate.parse(data1String, formato);
+                String dataString = SCANNER.nextLine();
+                LocalDate data = LocalDate.parse(dataString, formato);
+                if(data.getDayOfWeek().getValue() > 5){
+                    throw new FimDeSemanaException();
+                }
+                return data;
             } catch (DateTimeParseException e){
                 System.out.println("\nFormato de data inválido. Digite novamente\n");
+            } catch (FimDeSemanaException e){
+                System.out.println("\nData inválida. Posto de vacinação fechado no Fim de Semana\n");
             }
         }
     }

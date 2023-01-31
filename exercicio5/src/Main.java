@@ -20,18 +20,20 @@ public class Main {
                 segundos = scanner.nextLong();
                 break;
             }catch (InputMismatchException e){
-                System.out.println("\nAceito apenas números. Digite novamente\n");
+                System.out.println("\nAceito apenas números. Digite novamente");
+            } finally {
+                scanner.nextLine();
             }
         }
 
         Duration duration = Duration.of(segundos, ChronoUnit.SECONDS);
         System.out.printf("""
                 %d segundo(s) equivale a:
-                       %d dia(s)
-                       %d hora(s)
-                       %d minuto(s)
+                       %d dia(s),
+                       %d hora(s),
+                       %d minuto(s) e
                        %d segundo(s)""",
-                segundos, duration.toDays(), duration.toHours(), duration.toMinutes(), duration.toSeconds());
+                segundos, duration.toDays(), duration.toHoursPart(), duration.toMinutesPart(), duration.toSecondsPart());
 
     }
 }
